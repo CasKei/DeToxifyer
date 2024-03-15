@@ -1,1 +1,9 @@
 dataset/train.csv
+dataset/all_data.csv
+dataset/test.csv
+
+dataset/data1.pickle
+dataset/document_vectors.pickle
+dataset/pythonfiles/
+dataset/saved_weights.pt
+dataset/tagged_data.pickle
