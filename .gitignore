@@ -4,6 +4,11 @@ dataset/test.csv
 
 dataset/data1.pickle
 dataset/document_vectors.pickle
+dataset/betterclean.pickle
+
+
 dataset/pythonfiles/
 dataset/saved_weights.pt
 dataset/tagged_data.pickle
+dataset/cc.en.300.bin
+dataset/cc.en.300.bin.gz
