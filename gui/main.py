@@ -1,16 +1,23 @@
 import customtkinter
 
-customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
-customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
+class App(customtkinter.CTk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("400x150")
 
-app = customtkinter.CTk()  # create CTk window like you do with the Tk window
-app.geometry("400x240")
+        self.grid_rowconfigure(0, weight=1)  # configure grid system
+        self.grid_columnconfigure(0, weight=1)
 
-def button_function():
-    print("button pressed")
+        self.textbox = customtkinter.CTkTextbox(master=self, width=400, corner_radius=0)
+        self.textbox.grid(row=0, column=0, sticky="nsew")
+        self.textbox.insert("0.0", "Some example text!\n" * 10)
+        self.button = customtkinter.CTkButton(self, text="my button", command=self.button_callbck)
+        # self.button.pack(padx=20, pady=20)
 
-# Use CTkButton instead of tkinter Button
-button = customtkinter.CTkButton(master=app, text="CTkButton", command=button_function)
-button.place(relx=0.5, rely=0.5, anchor=customtkinter.CENTER)
 
+
+    def button_callbck(self):
+        print("button clicked")
+
+app = App()
 app.mainloop()
