@@ -12,3 +12,6 @@ dataset/saved_weights.pt
 dataset/tagged_data.pickle
 dataset/cc.en.300.bin
 dataset/cc.en.300.bin.gz
+dataset/LR_model.pkl
+dataset/LR_document_vectors.pickle
+dataset/cleaned_data.csv
