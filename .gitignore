@@ -1,4 +1,5 @@
 dataset/train.csv
+<<<<<<< Updated upstream
 dataset/all_data.csv
 dataset/test.csv
 
@@ -10,8 +11,15 @@ dataset/betterclean.pickle
 dataset/pythonfiles/
 dataset/saved_weights.pt
 dataset/tagged_data.pickle
+<<<<<<< Updated upstream
 dataset/cc.en.300.bin
 dataset/cc.en.300.bin.gz
 dataset/LR_model.pkl
 dataset/LR_document_vectors.pickle
 dataset/cleaned_data.csv
+=======
+=======
+.DS_Store
+.venv
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

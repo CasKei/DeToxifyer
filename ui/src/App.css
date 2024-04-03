@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+  padding-top: 5rem;
+}
+
+.App__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.App__title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.Translation__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.Translation__fields {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.Translation__input,
+.Translation__output {
+  width: 49%;
+}
+
+.Translation__input-field,
+.Translation__output-field {
+  width: 100%;
+}
+
+.Translation__button {
+  margin-bottom: 2rem;
+}
+
+.Translation__button-translate {
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+}
+
+/* Existing styles... */
