@@ -17,6 +17,13 @@ dataset/cc.en.300.bin.gz
 dataset/LR_model.pkl
 dataset/LR_document_vectors.pickle
 dataset/cleaned_data.csv
+dataset/balanced_data.csv
+
+dataset/bert.pt
+dataset/bertL2.pt
+dataset/bertStateDict.pt
+dataset/bertL2StateDict.pt
+
 =======
 =======
 .DS_Store
