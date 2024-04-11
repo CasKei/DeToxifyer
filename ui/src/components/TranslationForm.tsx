@@ -2,18 +2,25 @@ import React from 'react';
 import InputField from './InputField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { spawn } from 'child_process';
 
 interface TranslationFormProps {
     inputText: string;
     setInputText: React.Dispatch<React.SetStateAction<string>>;
     outputText: string;
-    onTranslate: (translatedText: string) => void;
+    setOutputText: React.Dispatch<React.SetStateAction<string>>;
+    toxicityScore: number;
+    setToxicityScore: React.Dispatch<React.SetStateAction<number>>;
+    onTranslate: (translatedText: string, toxicityScore: number) => void;
 }
 
 const TranslationForm: React.FC<TranslationFormProps> = ({
     inputText,
     setInputText,
     outputText,
+    setOutputText,
+    toxicityScore,
+    setToxicityScore,
     onTranslate,
 }) => {
     const handleInputChange = (newValue: string) => {
@@ -21,15 +28,16 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
     };
 
     const handleTranslate = () => {
-        // Here, you would call your translation function or API
-        // and pass the translated text to the onTranslate callback
-        const translatedText = translateText(inputText);
-        onTranslate(translatedText);
-    };
+        const pythonProcess = spawn('python', ['translate.py', inputText]);
 
-    const translateText = (text: string): string => {
-        // Placeholder for your translation logic
-        return text.split('').reverse().join('');
+        pythonProcess.stdout.on('data', (data) => {
+            const output = data.toString().trim().split(',');
+            const translatedText = output[0];
+            const toxicityScoreValue = parseFloat(output[1]);
+            setOutputText(translatedText);
+            setToxicityScore(toxicityScoreValue);
+            onTranslate(translatedText, toxicityScoreValue);
+        });
     };
 
     return (
@@ -56,6 +64,9 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
                         multiline
                         rows={10}
                     />
+                    <Box className="Translation__toxicity-score">
+                        <p>Toxicity Score: {toxicityScore}%</p>
+                    </Box>
                 </Box>
             </Box>
             <Box className="Translation__button">

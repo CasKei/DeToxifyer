@@ -7,9 +7,11 @@ import TranslationForm from './components/TranslationForm';
 const App: React.FC = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
+  const [toxicityScore, setToxicityScore] = useState(0);
 
-  const handleTranslation = (translatedText: string) => {
+  const handleTranslation = (translatedText: string, toxicityScore: number) => {
     setOutputText(translatedText);
+    setToxicityScore(toxicityScore);
   };
 
   return (
@@ -20,6 +22,9 @@ const App: React.FC = () => {
           inputText={inputText}
           setInputText={setInputText}
           outputText={outputText}
+          setOutputText={setOutputText}
+          toxicityScore={toxicityScore}
+          setToxicityScore={setToxicityScore}
           onTranslate={handleTranslation}
         />
       </Box>

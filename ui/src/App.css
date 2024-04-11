@@ -32,9 +32,9 @@
   width: 49%;
 }
 
-.Translation__input-field,
-.Translation__output-field {
-  width: 100%;
+.Translation__toxicity-score {
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
 .Translation__button {
