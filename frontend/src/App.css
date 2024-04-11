@@ -29,12 +29,12 @@
 
 .Translation__input,
 .Translation__output {
-  width: 49%;
+  width: 50%;
 }
 
-.Translation__toxicity-score {
-  margin-top: 1rem;
-  font-size: 1.2rem;
+.Translation__input-field,
+.Translation__output-field {
+  width: 100%;
 }
 
 .Translation__button {
@@ -46,4 +46,20 @@
   padding: 0.8rem 2rem;
 }
 
-/* Existing styles... */
+/* ... existing styles ... */
+
+.Output__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.Output__text {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.Output__score {
+  font-size: 1.2rem;
+}

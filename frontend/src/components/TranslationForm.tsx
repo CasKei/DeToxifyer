@@ -6,18 +6,14 @@ import Box from '@mui/material/Box';
 interface TranslationFormProps {
     inputText: string;
     setInputText: React.Dispatch<React.SetStateAction<string>>;
-    outputText: string;
     setOutputText: React.Dispatch<React.SetStateAction<string>>;
-    toxicityScore: number;
     setToxicityScore: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const TranslationForm: React.FC<TranslationFormProps> = ({
     inputText,
     setInputText,
-    outputText,
     setOutputText,
-    toxicityScore,
     setToxicityScore,
 }) => {
     const handleInputChange = (newValue: string) => {
@@ -26,7 +22,7 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
 
     const handleTranslate = async () => {
         try {
-            const response = await fetch('/translate', {
+            const response = await fetch('http://localhost:3000/translate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,20 +55,6 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
                         multiline
                         rows={10}
                     />
-                </Box>
-                <Box className="Translation__output">
-                    <InputField
-                        type="text"
-                        value={outputText}
-                        setValue={() => { }}
-                        label="Translated Text"
-                        readonly
-                        multiline
-                        rows={10}
-                    />
-                    <Box className="Translation__toxicity-score">
-                        <p>Toxicity Score: {toxicityScore}%</p>
-                    </Box>
                 </Box>
             </Box>
             <Box className="Translation__button">
