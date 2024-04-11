@@ -15,7 +15,7 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({ outputText, toxicityScore
                     type="text"
                     value={outputText}
                     setValue={() => { }}
-                    label="Translated Text"
+                    label="DeToxed Text"
                     readonly
                     multiline
                     rows={10}

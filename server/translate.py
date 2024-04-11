@@ -1,11 +1,12 @@
 import sys
+from toxicScore import predict_toxicity
 
 def translate(input_text):
     # Your translation logic here
     translated_text = input_text[::-1]  # Reversing the input text as a placeholder
 
     # Your toxicity scoring logic here
-    toxicity_score = len(input_text) * 0.1  # Placeholder for toxicity score
+    class_item, toxicity_score = predict_toxicity(input_text)
 
     return translated_text, toxicity_score
 

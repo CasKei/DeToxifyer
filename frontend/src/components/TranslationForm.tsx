@@ -50,7 +50,7 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
                         type="text"
                         value={inputText}
                         setValue={handleInputChange}
-                        label="Enter your email text"
+                        label="Enter your toxic text"
                         readonly={false}
                         multiline
                         rows={10}

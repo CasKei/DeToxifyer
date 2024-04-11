@@ -13,7 +13,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Box className="App__container">
-        <h1 className="App__title">Angry Email Translator</h1>
+        <h1 className="App__title">DeToxifyer</h1>
         <TranslationForm
           inputText={inputText}
           setInputText={setInputText}
