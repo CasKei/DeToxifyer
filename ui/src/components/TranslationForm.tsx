@@ -2,7 +2,6 @@ import React from 'react';
 import InputField from './InputField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { spawn } from 'child_process';
 
 interface TranslationFormProps {
     inputText: string;
@@ -11,7 +10,6 @@ interface TranslationFormProps {
     setOutputText: React.Dispatch<React.SetStateAction<string>>;
     toxicityScore: number;
     setToxicityScore: React.Dispatch<React.SetStateAction<number>>;
-    onTranslate: (translatedText: string, toxicityScore: number) => void;
 }
 
 const TranslationForm: React.FC<TranslationFormProps> = ({
@@ -21,23 +19,31 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
     setOutputText,
     toxicityScore,
     setToxicityScore,
-    onTranslate,
 }) => {
     const handleInputChange = (newValue: string) => {
         setInputText(newValue);
     };
 
-    const handleTranslate = () => {
-        const pythonProcess = spawn('python', ['translate.py', inputText]);
+    const handleTranslate = async () => {
+        try {
+            const response = await fetch('/translate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ inputText }),
+            });
 
-        pythonProcess.stdout.on('data', (data) => {
-            const output = data.toString().trim().split(',');
-            const translatedText = output[0];
-            const toxicityScoreValue = parseFloat(output[1]);
-            setOutputText(translatedText);
-            setToxicityScore(toxicityScoreValue);
-            onTranslate(translatedText, toxicityScoreValue);
-        });
+            if (response.ok) {
+                const { translatedText, toxicityScore } = await response.json();
+                setOutputText(translatedText);
+                setToxicityScore(toxicityScore);
+            } else {
+                console.error('Error translating text:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error translating text:', error);
+        }
     };
 
     return (
