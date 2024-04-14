@@ -5,7 +5,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # print(device)
 
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
-model.load_state_dict(torch.load('bertStateDict.pt', map_location=device))
+model.load_state_dict(torch.load('bertStateDict.pt', map_location=device), strict=False)
 model.to(device)
 model.eval()
 
