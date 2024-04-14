@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
             }}
         >
             <div className="footer">
-                <p className="footer__link">
+                {/* <p className="footer__link">
                     <Link
                         sx={{ display: "flex", alignItems: "center" }}
                         color="inherit"
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                         ></GitHubIcon>
                         DeToxifyer
                     </Link>
-                </p>
+                </p> */}
 
                 <div className="footer__text">
                     <p>50.021 Artificial Intelligence Project</p>
