@@ -14,7 +14,7 @@ def translate(input_text):
     return translated_text, toxicity_score
 
 if __name__ == "__main__":
-    input_text = input("Give text:")
-    # input_text = sys.argv[1]
+    # input_text = input("Give text:")
+    input_text = sys.argv[1]
     translated_text, toxicity_score = translate(input_text)
     print(f"{translated_text},{toxicity_score}")
