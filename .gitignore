@@ -28,10 +28,9 @@ dataset/tfidf_vectoriser.pkl
 server/node_modules/*
 server/package-lock.json
 frontend/node_modules/*
-ui/node_modules/*
-ui/package-lock.json
-ui/node_modules/*/*
 
+trainedModels
+dataset/cleaned_balanced_data.csv
 =======
 .DS_Store
 .venv
