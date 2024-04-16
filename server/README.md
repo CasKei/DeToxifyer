@@ -15,3 +15,6 @@ const pythonProcess = spawn('/path/to/your/project/myenv/bin/python', ['translat
 ```
 - Otherwise, it will use the python on your local computer's PATH to run the script.
 - Reminder that the relevant npm packages need to be installed in the python interpreter that you want to use to run `spawn`
+6) To change the BART model used to generate the detoxed text, use the `detox` function in `translate.py` (its a commented out line), whereas `ourdetox` function is our own model.
+- `detox` function can be found from the `detox.py` file where it uses the ParaDetox model to generate the detoxified sentence. This code is run to essentilly provide a proof of concept for our gui.
+- `ourdetox` function can be found from the `ourDetox.py` file where it uses our trained BART model `bartDetox.pt` to generate the detoxified sentence.
