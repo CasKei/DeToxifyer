@@ -21,6 +21,7 @@ app.post('/translateGood', (req, res) => {
   const inputText = req.body.inputText;
 
   const pythonProcess = spawn('python3', ['translateGood.py', inputText]);
+  // const pythonProcess = spawn('C:/Users/chong/anaconda3/python', ['translateGood.py', inputText]);
   // const pythonProcess = spawn('/Users/melchew/Desktop/50.021 Artificial Intelligence/Project/DeToxifyer/.venv/bin/python3', ['translate.py', inputText]);
 
   let outputData = '';
@@ -47,6 +48,7 @@ app.post('/translate', (req, res) => {
   const inputText = req.body.inputText;
 
   const pythonProcess = spawn('python3', ['translate.py', inputText]);
+  // const pythonProcess = spawn('C:/Users/chong/anaconda3/python', ['translate.py', inputText]);
   // const pythonProcess = spawn('/Users/melchew/Desktop/50.021 Artificial Intelligence/Project/DeToxifyer/.venv/bin/python3', ['translate.py', inputText]);
 
   let outputData = '';

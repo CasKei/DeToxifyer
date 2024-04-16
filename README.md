@@ -20,8 +20,17 @@ Clone the repository
 ## Project Structure
 DeToxifyer
 ├── dataset/ (contains mainly Jupyter notebooks to train models)
-├── frontend/ (contains files for running the frontend of the web application)
+|   ├──── afterdoc2vec.ipynb (code for first iteration of lr)
+|   ├──── bert.ipynb (code for firsts iteration of BERT)
+|   ├──── dataprocessing.ipynb (code for tokenizing with doc2vec)
+|   ├──── kcbert2 (code for 2nd iteration of BERT)
+|   ├──── kcLR (code for second interation of lr)
+|   ├──── kcUsesBert (code to show how to use BERT model)
+|   ├──── paradetox.ipynb (Running of paradetox model)
+|   └── csv files that contains the dataset for running in the Jupyter notebooks
 ├── trainedModels/ (contains trained models to load)
+├── bart/ (contains bart models to load)
+├── frontend/ (contains files for running the frontend of the web application)
 ├── server/ (contains files for running server backend for the web application)
 ├── requirements.txt
 └── README.md
