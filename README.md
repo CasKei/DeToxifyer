@@ -19,6 +19,7 @@ Clone the repository
 
 ## Project Structure
 DeToxifyer
+```
 ├── dataset/ (contains mainly Jupyter notebooks to train models)
 |   ├──── afterdoc2vec.ipynb (code for first iteration of lr)
 |   ├──── bert.ipynb (code for firsts iteration of BERT)
@@ -37,3 +38,4 @@ DeToxifyer
 ├── server/ (contains files for running server backend for the web application)
 ├── requirements.txt
 └── README.md
+```
