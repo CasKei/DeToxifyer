@@ -14,7 +14,8 @@ Clone the repository
 1. Install the dependencies: `pip install -r requirements.txt`
 2. Ensure that the relevant pt files exist before loading or running model
 3. For running the web application, run the server before the frontend code. Refer to server/README.md for more detailed instructions.
-
+4. When running the code or model, check if the model is loaded corrrectly (pt file in detox.py and ourDetox.py) via the file path of the saved model, as well as instantiating running python with the correct version (under server.js spawn python process, directory to the python kernel)
+5. Some of the pt files might not be in the repo due to the large file size if you were to clone straight from the repo. However you can obtain the pt files by running the Jupyter notebook associated with the training of the model. 
 
 ## Project Structure
 DeToxifyer
