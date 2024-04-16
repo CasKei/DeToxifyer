@@ -12,6 +12,7 @@ def translate(input_text):
     class_item, toxicity_score = predict_toxicity(input_text)
 
     return translated_text, toxicity_score
+    # return 'test', 1
 
 if __name__ == "__main__":
     # input_text = input("Give text:")
