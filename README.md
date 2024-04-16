@@ -30,6 +30,9 @@ DeToxifyer
 |   └── csv files that contains the dataset for running in the Jupyter notebooks
 ├── trainedModels/ (contains trained models to load)
 ├── bart/ (contains bart models to load)
+|   ├──── train_bart.ipynb (Training on dataset without stop words)
+|   ├──── train_bart2.ipynb (Training on dataset with 4000 sentences)
+|   └── train_bart3.ipynb (Training on dataset with 200 sentences)
 ├── frontend/ (contains files for running the frontend of the web application)
 ├── server/ (contains files for running server backend for the web application)
 ├── requirements.txt
