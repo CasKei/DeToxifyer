@@ -16,5 +16,3 @@ def ourdetox(text):
                             max_length=128, num_beams=10)
     neutrals = tokenizer.decode(tokens[0, ...], skip_special_tokens=True)
     return neutrals
-
-# ourdetox("fuck you motherfucker")
