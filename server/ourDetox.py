@@ -3,7 +3,7 @@ import torch
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 tokenizer = BartTokenizer.from_pretrained("facebook/bart-base")
 model = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
-model.load_state_dict(torch.load("bartDetox.pt", map_location=device), strict=False)
+model.load_state_dict(torch.load("bartDetox4000.pt", map_location=device), strict=False)
 model.to(device)
 model.eval()
 
@@ -16,4 +16,4 @@ def ourdetox(text):
     neutrals = tokenizer.decode(tokens[0, ...], skip_special_tokens=True)
     return neutrals
 
-ourdetox("fuck you motherfucker")
+print(ourdetox("get your shit together"))
