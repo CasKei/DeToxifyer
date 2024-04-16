@@ -29,6 +29,33 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
         setInputText(newValue);
     };
 
+    const handleTranslateGood = async () => {
+        setIsLoading(true);
+
+        try {
+            const response = await fetch('http://localhost:3000/translateGood', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ inputText }),
+            });
+
+            if (response.ok) {
+                const { translatedText, toxicityScore } = await response.json();
+                setOutputText(translatedText);
+                setToxicityScoreLocal(toxicityScore);
+                setToxicityScore(toxicityScore);
+            } else {
+                console.error('Error translating text:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error translating text:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     const handleTranslate = async () => {
         setIsLoading(true);
 
@@ -92,7 +119,7 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
                     />
                 </Box>
             </Box>
-            <Box className="Translation__button">
+            <Box className="Translation__button-container">
                 <Button
                     variant="contained"
                     color="primary"
@@ -100,7 +127,16 @@ const TranslationForm: React.FC<TranslationFormProps> = ({
                     className="Translation__button-translate"
                     disabled={isLoading}
                 >
-                    {isLoading ? <CircularProgress size={24} /> : 'Translate'}
+                    {isLoading ? <CircularProgress size={24} /> : 'Translate with our model'}
+                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleTranslateGood}
+                    className="Translation__button-translate"
+                    disabled={isLoading}
+                >
+                    {isLoading ? <CircularProgress size={24} /> : 'Translate with ParaDetox'}
                 </Button>
             </Box>
             <Box className="Output__score">

@@ -16,6 +16,32 @@ app.get('/', (req, res) => {
 app.use(express.json());
 app.use(cors(corsOptions));
 
+app.post('/translateGood', (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3001');
+  const inputText = req.body.inputText;
+
+  const pythonProcess = spawn('python3', ['translateGood.py', inputText]);
+  // const pythonProcess = spawn('/Users/melchew/Desktop/50.021 Artificial Intelligence/Project/DeToxifyer/.venv/bin/python3', ['translate.py', inputText]);
+
+  let outputData = '';
+
+  pythonProcess.stdout.on('data', (data) => {
+    outputData += data.toString();
+  });
+
+  pythonProcess.stdout.on('end', () => {
+    const output = outputData.trim().split(',');
+    const translatedText = output[0];
+    const toxicityScore = parseFloat(output[1]);
+    res.json({ translatedText, toxicityScore });
+  });
+
+  pythonProcess.on('error', (err) => {
+    console.error('Error executing Python script:', err);
+    res.status(500).json({ error: 'An error occurred while translating the text' });
+  });
+});
+
 app.post('/translate', (req, res) => {
   res.set('Access-Control-Allow-Origin', 'http://localhost:3001');
   const inputText = req.body.inputText;

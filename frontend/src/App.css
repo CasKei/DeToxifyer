@@ -28,9 +28,23 @@
   width: calc(50% - 0.5rem);
 }
 
-.Translation__button {
+.Translation__button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  /* Adjust this value to increase or decrease the spacing */
   margin-top: 1rem;
-  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.Translation__button-translate {
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+}
+
+.Translation__button-translate:last-child {
+  margin-right: 0;
+  /* Add this line */
 }
 
 .Output__container {
